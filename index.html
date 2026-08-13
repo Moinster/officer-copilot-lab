@@ -202,6 +202,66 @@
     .objective-list { grid-template-columns: repeat(2, 1fr); }
     .formula-card { grid-template-columns: repeat(4, 1fr); margin: 1.5rem 0; }
 
+    .phase-card {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      margin: 1.5rem 0;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .phase-card article {
+      padding: 1rem 1.1rem;
+      background: var(--paper);
+    }
+
+    .phase-card b {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 950;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .phase-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin: 1.5rem 0 0.75rem;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .stat-grid article {
+      padding: 1.25rem;
+      background: var(--paper);
+    }
+
+    .stat-grid strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--red);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.15rem;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .stat-grid span { color: var(--muted); font-size: 0.9rem; }
+
+    .source-note {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .source-note a { text-decoration: underline; }
+
     .objective-list article,
     .formula-card span {
       padding: 1.2rem;
@@ -419,6 +479,8 @@
 
     .scenario-banner p { max-width: 760px; margin: 0.5rem 0 0; }
 
+    .scenario-banner.plain::after { content: none; }
+
     .prompt-card {
       margin: 1.25rem 0;
       background: white;
@@ -604,6 +666,8 @@
 
     @media (max-width: 1180px) {
       .layout { grid-template-columns: 260px minmax(0, 1fr); }
+      .phase-card { grid-template-columns: repeat(2, 1fr); }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
       .resources { position: static; grid-column: 1 / -1; max-height: none; }
       .resource-block { display: inline-block; width: 32%; vertical-align: top; padding-right: 1rem; }
     }
@@ -640,7 +704,9 @@
       .choice-grid,
       .output-grid,
       .objective-list,
-      .formula-card { grid-template-columns: 1fr; }
+      .formula-card,
+      .phase-card,
+      .stat-grid { grid-template-columns: 1fr; }
       .resource-block { display: block; width: auto; }
       .guide { flex-wrap: wrap; }
       h2 { font-size: clamp(2.3rem, 10vw, 3.1rem); }
@@ -656,7 +722,7 @@
       <div><strong>Officer Copilot Lab</strong><small>Executive decision sprint</small></div>
     </div>
     <div class="topbar-progress">
-      <div class="progress-label"><span id="progress-label">Activity 1 of 8</span><span>50 minutes</span></div>
+      <div class="progress-label"><span id="progress-label">Activity 1 of 9</span><span>58 minutes</span></div>
       <div class="progress-track" aria-hidden="true"><span class="progress-fill" id="progress-fill"></span></div>
     </div>
   </header>
@@ -676,6 +742,7 @@
         <button class="nav-button" type="button" data-nav="5"><span class="nav-number">06</span><div><strong>Create</strong><small>Shape the message</small></div></button>
         <button class="nav-button" type="button" data-nav="6"><span class="nav-number">07</span><div><strong>Follow through</strong><small>Make it accountable</small></div></button>
         <button class="nav-button" type="button" data-nav="7"><span class="nav-number">08</span><div><strong>Lead responsibly</strong><small>Review and act</small></div></button>
+        <button class="nav-button" type="button" data-nav="8"><span class="nav-number">09</span><div><strong>Inspire adoption</strong><small>Lead the shift</small></div></button>
       </nav>
     </aside>
 
@@ -746,9 +813,9 @@
         <div class="new-chat-note"><strong>Start a new chat</strong> before adding the meeting so the preparation is grounded only in the meeting and its related work context.</div>
         <div class="activity-note"><strong>Point Copilot to the meeting:</strong> In Copilot Chat, make sure <strong>Work IQ</strong> is on. Select <strong>Add work content</strong> in the prompt box, or type <strong>/</strong>. Choose <strong>Meetings</strong>, search by meeting title or organizer, and select the meeting. It will appear as a reference in the prompt.</div>
         <ol class="steps">
-          <li><div><strong>Choose a real upcoming meeting</strong> &mdash; a customer business review, S&amp;OP checkpoint, brand plan review, or leadership staff meeting &mdash; and add it to the prompt using the Work IQ steps above.</div></li>
-          <li><div><strong>Run the preparation prompt</strong> with the meeting reference attached.</div></li>
-          <li><div><strong>Verify participant positions</strong> before treating them as fact.</div></li>
+          <li><div><strong>Choose a real upcoming meeting.</strong> A customer business review, S&amp;OP checkpoint, brand plan review, or leadership staff meeting works well. Add it to the prompt using the Work IQ steps above.</div></li>
+          <li><div><strong>Run the preparation prompt.</strong> Attach the meeting reference before you send it.</div></li>
+          <li><div><strong>Verify participant positions.</strong> Confirm them against the source content before treating them as fact.</div></li>
         </ol>
         <div class="prompt-card">
           <div class="prompt-header"><h3>Leadership meeting pre-read</h3><button class="copy-button" type="button" data-copy="meeting-prompt">Copy</button></div>
@@ -869,12 +936,79 @@
           <div class="prompt-header"><h3>Commit to one workflow</h3><button class="copy-button" type="button" data-copy="commitment-prompt">Copy</button></div>
           <pre id="commitment-prompt">Help me redesign one recurring workflow I own: [name the meeting, review, or reporting cycle]. Today it takes [time] and involves [people or teams]. Map it into six stages - catch up, prepare, analyze, decide, create, follow through - and for each stage give me the specific Copilot prompt I would use, the source content it needs, and the human check I must not skip. End with the one stage where I should start next week and why.</pre>
         </div>
-        <p class="reflection"><strong>Close:</strong> Where could Copilot improve the quality of a decision&mdash;not just the speed of a task?</p>
+        <p class="reflection"><strong>Reflection:</strong> Where could Copilot improve the quality of a decision&mdash;not just the speed of a task?</p>
+      </section>
+
+      <section class="panel" data-panel="8">
+        <div class="kicker">Activity 9 &middot; 8 minutes</div>
+        <h2>Inspire and lead adoption.</h2>
+        <p class="lede">Your own fluency is the starting point, not the finish line. This activity turns what you just practiced into how your organization works, using Microsoft's published adoption guidance for leaders.</p>
+
+        <div class="scenario-banner plain">
+          <h3>Why this sits with you</h3>
+          <p>Microsoft's AI Strategy Roadmap research, drawn from interviews with more than 100 business and IT leaders, is blunt about what separates organizations that get value from AI: <em>&ldquo;Senior leadership's vision and support are&mdash;by far&mdash;the strongest drivers of success.&rdquo;</em></p>
+        </div>
+        <p class="source-note">Source: <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/04/03/the-ai-strategy-roadmap-navigating-the-stages-of-value-creation/" target="_blank" rel="noreferrer">The AI Strategy Roadmap</a>, Microsoft Cloud Blog.</p>
+
+        <p class="route-intro"><strong>Microsoft's Copilot adoption framework</strong>The five stages Microsoft publishes for AI leaders. Find where your organization actually is before deciding what to do next.</p>
+        <div class="phase-card">
+          <article><b>Plan</b><p>Define business value and the scenarios worth pursuing first.</p></article>
+          <article><b>Implement</b><p>Get licensed users skilled and productive quickly.</p></article>
+          <article><b>Adopt</b><p>Build habit and community around real, repeated use.</p></article>
+          <article><b>Manage</b><p>Measure usage and impact; govern how AI is used.</p></article>
+          <article><b>Extend &amp; optimize</b><p>Move from assisted work to agents and redesigned processes.</p></article>
+        </div>
+        <p class="source-note">Source: <a href="https://adoption.microsoft.com/en-us/copilot/advanced-resources/" target="_blank" rel="noreferrer">Advanced resources for Microsoft 365 Copilot adoption</a> &mdash; AI Leaders track, Microsoft Adoption.</p>
+
+        <p class="route-intro"><strong>What Microsoft asks leaders to do</strong>These are the leader-level practices Microsoft documents, distinct from the work an IT admin or change manager owns.</p>
+        <div class="capability-grid">
+          <article><strong>Sponsor</strong><span>Provide visible executive sponsorship and a unified vision of success that ties AI to a shared business imperative&mdash;not to a tool rollout.</span></article>
+          <article><strong>Build trust</strong><span>Microsoft's leadership guidance is framed as <em>&ldquo;It's not about AI. It's about trust.&rdquo;</em> Treat the human side of enablement as the competitive advantage.</span></article>
+          <article><strong>Govern</strong><span>Stand up an AI governance council so decisions about acceptable use, data, and risk are made deliberately rather than case by case.</span></article>
+          <article><strong>Empower champions</strong><span>Name and back a champion network. Champions create the groundswell that increases adoption and reduce strain on the core project team.</span></article>
+          <article><strong>Upskill</strong><span>Treat capability building as a workforce strategy. Nearly half of leaders name upskilling existing employees as a top priority for the next 12&ndash;18 months.</span></article>
+          <article><strong>Measure</strong><span>Use the Copilot Dashboard and Copilot Analytics to track real usage and impact, then act on what they show.</span></article>
+        </div>
+        <p class="source-note">Sources: <a href="https://adoption.microsoft.com/en-us/leading-in-the-era-of-ai/" target="_blank" rel="noreferrer">Leading in the era of AI</a>, <a href="https://adoption.microsoft.com/en-us/become-a-champion/" target="_blank" rel="noreferrer">Microsoft 365 Champion Program</a>, and the <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born" target="_blank" rel="noreferrer">2025 Work Trend Index</a>.</p>
+
+        <p class="route-intro"><strong>The gap you are closing</strong>Microsoft's research consistently shows leaders further along than the people they lead. Closing that distance is the job.</p>
+        <div class="stat-grid">
+          <article><strong>67%</strong><span>of leaders are familiar with AI agents, compared with just 40% of employees.</span></article>
+          <article><strong>83%</strong><span>of leaders say AI will let employees take on more complex, strategic work earlier in their careers.</span></article>
+          <article><strong>51%</strong><span>of managers say AI training will become a key responsibility for their teams within five years.</span></article>
+          <article><strong>+30%</strong><span>more active days on Copilot for members of a Copilot Adoption Community versus non-members.</span></article>
+        </div>
+        <p class="source-note">Sources: <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born" target="_blank" rel="noreferrer">2025 Work Trend Index</a> (first three) and <a href="https://adoption.microsoft.com/en-us/copilot/adoption-community/" target="_blank" rel="noreferrer">Copilot Adoption Community</a>, based on Microsoft internal analytics, June 2024&ndash;July 2025.</p>
+
+        <div class="ga-note"><strong>The pitfall Microsoft names:</strong> leaders who endorse AI in principle without providing a concrete plan and vision. Microsoft's 2024 Work Trend Index found that while leaders agree AI is a business imperative, many believe their organization lacks a plan to move from individual impact to bottom-line results. Enthusiasm without a plan reads to your teams as permission to wait.</div>
+
+        <ol class="steps">
+          <li><div><strong>Locate yourself on the framework.</strong> Decide honestly which of the five stages describes your organization today.</div></li>
+          <li><div><strong>Run the adoption plan prompt.</strong> Use the scenario you committed to in Activity 8 as the anchor.</div></li>
+          <li><div><strong>Name three people.</strong> Leave this activity with actual names for your champion network, not a role description.</div></li>
+        </ol>
+
+        <div class="prompt-card">
+          <div class="prompt-header"><h3>Build your 90-day adoption plan</h3><button class="copy-button" type="button" data-copy="adoption-plan-prompt">Copy</button></div>
+          <pre id="adoption-plan-prompt">Act as an adoption strategist. I lead [team or function] of roughly [size] people, and we are at the [Plan / Implement / Adopt / Manage / Extend and optimize] stage of Microsoft 365 Copilot adoption. The workflow I most want to change is [the workflow from Activity 8]. Build me a 90-day adoption plan with three phases. For each phase give me: the outcome I am driving, the two or three actions I personally take as the leader, what I delegate and to whom, the signal that tells me it is working, and the risk that would stall it. Separate what I can start this week from what needs preparation. Keep it to one page.</pre>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-header"><h4>Identify your champions</h4><button class="copy-button" type="button" data-copy="champion-prompt">Copy</button></div>
+          <pre id="champion-prompt">Based on my recent emails, chats, and meetings, identify five people in my organization who show signs of being effective AI champions: they experiment with new tools, others come to them for help, and they communicate clearly across teams. For each person, cite the specific evidence that led you to suggest them and note what they would need from me to succeed in that role. Do not infer enthusiasm or skill that is not supported by available content, and tell me where the evidence is thin.</pre>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-header"><h4>Write the message that sets expectations</h4><button class="copy-button" type="button" data-copy="adoption-comms-prompt">Copy</button></div>
+          <pre id="adoption-comms-prompt">Draft a short message from me to [team or organization] about how we will use Microsoft 365 Copilot. Include: why this matters to our business specifically, one concrete example of how I am using it in my own work, what I am asking people to try in the next 30 days, where to get help, and what will not change - our standards for accuracy, judgment, and accountability. Direct and human, under 250 words. No hype and no mandate language.</pre>
+        </div>
+
+        <p class="reflection"><strong>Close:</strong> Your teams will calibrate to what you actually do, not what you announce. What will they see you doing differently next week?</p>
       </section>
 
       <footer class="guide">
         <button class="guide-button secondary" type="button" id="previous">Previous</button>
-        <span class="status" id="status">Activity 1 of 8</span>
+        <span class="status" id="status">Activity 1 of 9</span>
         <button class="guide-button" type="button" id="next">Continue</button>
       </footer>
     </main>
@@ -898,6 +1032,15 @@
         <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/researcher-agent" target="_blank" rel="noreferrer">Researcher agent</a>
         <a href="https://support.microsoft.com/en-us/Microsoft-365-Copilot/refer-to-specific-files-and-more-in-microsoft-365-copilot" target="_blank" rel="noreferrer">Reference a specific meeting</a>
         <a href="https://support.microsoft.com/en-us/office/bizchat-overview/draft-and-send-email-using-microsoft-365-copilot-chat" target="_blank" rel="noreferrer">Draft and open email in Outlook</a>
+      </div>
+      <div class="resource-block">
+        <h3>Leading adoption</h3>
+        <a href="https://adoption.microsoft.com/en-us/leading-in-the-era-of-ai/" target="_blank" rel="noreferrer">Leading in the era of AI</a>
+        <a href="https://adoption.microsoft.com/en-us/copilot/advanced-resources/" target="_blank" rel="noreferrer">Adoption resources for AI leaders</a>
+        <a href="https://adoption.microsoft.com/en-us/become-a-champion/" target="_blank" rel="noreferrer">Microsoft 365 Champion Program</a>
+        <a href="https://adoption.microsoft.com/en-us/copilot/adoption-community/" target="_blank" rel="noreferrer">Copilot Adoption Community</a>
+        <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born" target="_blank" rel="noreferrer">2025 Work Trend Index</a>
+        <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/04/03/the-ai-strategy-roadmap-navigating-the-stages-of-value-creation/" target="_blank" rel="noreferrer">The AI Strategy Roadmap</a>
       </div>
       <div class="resource-block">
         <h3>Optional extension</h3>

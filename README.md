@@ -8,7 +8,7 @@ using Microsoft 365 Copilot.
 
 ## What's in it
 
-Eight activities, all navigable from the left rail or with the ← / → arrow keys:
+Nine activities, all navigable from the left rail or with the ← / → arrow keys:
 
 | # | Activity | Focus |
 |---|----------|-------|
@@ -20,9 +20,12 @@ Eight activities, all navigable from the left rail or with the ← / → arrow k
 | 6 | Create | Decision brief in Copilot in Word |
 | 7 | Follow through | Decision record + Outlook draft |
 | 8 | Lead responsibly | Verification and accountability |
+| 9 | Inspire adoption | Leading AI adoption across the org |
 
 Every prompt has a one-click **Copy** button. Activity 5 ends with a common
 "Decision Brief Handoff" that feeds Activity 6, so both analysis routes converge.
+Activity 9 is sourced from Microsoft's published adoption guidance — every framework,
+practice, and statistic on that panel links to its Microsoft source.
 
 ## Repository layout
 
