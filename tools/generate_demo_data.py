@@ -1,8 +1,9 @@
-"""Generate the fictional practice datasets for the Kraft Heinz Executive Copilot Lab.
+"""Generate the fictional practice datasets for the Officer Copilot Lab.
 
 All output is synthetic and deterministic (fixed seed). It describes a fictitious
 CPG manufacturer, "Lakeshore Foods Co.", selling to fictitious retail customers.
-It is not Kraft Heinz data, financials, consumer records, or performance results.
+It does not represent any real company's data, financials, consumer records, or
+performance results.
 
 Usage:  python tools/generate_demo_data.py
 Writes: assets/Demo_Weekly_Customer_Category_Performance.xlsx

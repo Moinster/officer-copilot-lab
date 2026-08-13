@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kraft Heinz &middot; Microsoft 365 Copilot Executive Decision Sprint</title>
-  <meta name="description" content="A Level 100-200 Microsoft 365 Copilot hands-on lab for Kraft Heinz executives.">
+  <title>Officer Copilot Lab &middot; Microsoft 365 Copilot Executive Decision Sprint</title>
+  <meta name="description" content="A Level 100-200 Microsoft 365 Copilot hands-on lab for executives.">
   <meta name="color-scheme" content="light">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23e4002b'/><path d='M16 6l10 10-10 10L6 16z' fill='%23ffb81c'/></svg>">
   <style>
@@ -58,7 +58,8 @@
       top: 0;
       z-index: 100;
       display: grid;
-      grid-template-columns: minmax(230px, 1fr) minmax(250px, 580px) auto;
+      grid-template-columns: minmax(230px, 1fr) minmax(250px, 640px);
+      justify-content: space-between;
       align-items: center;
       gap: 1.5rem;
       min-height: 76px;
@@ -113,20 +114,6 @@
       height: 100%;
       background: linear-gradient(90deg, var(--red), var(--gold));
       transition: width 240ms ease;
-    }
-
-    .co-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.4rem 0.7rem;
-      color: var(--ink);
-      background: var(--gold);
-      font-size: 0.72rem;
-      font-weight: 950;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      white-space: nowrap;
     }
 
     .layout {
@@ -625,7 +612,7 @@
       .topbar {
         width: 100%;
         min-width: 0;
-        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-columns: minmax(0, 1fr);
         gap: 0.75rem;
         padding-inline: 0.85rem;
       }
@@ -646,7 +633,6 @@
       .nav-button { display: block; width: auto; min-width: 0; padding: 0.45rem; text-align: center; }
       .nav-button div:last-child { display: none; }
       .nav-number { margin: auto; }
-      .co-badge { display: none; }
       .panel { min-height: auto; padding: 1.35rem; }
       pre, h1, h2, h3, p, a { overflow-wrap: anywhere; }
       .hero-grid,
@@ -667,13 +653,12 @@
   <header class="topbar">
     <div class="brand">
       <span class="brand-mark" aria-hidden="true"></span>
-      <div><strong>Kraft Heinz Copilot Lab</strong><small>Executive decision sprint</small></div>
+      <div><strong>Officer Copilot Lab</strong><small>Executive decision sprint</small></div>
     </div>
     <div class="topbar-progress">
       <div class="progress-label"><span id="progress-label">Activity 1 of 8</span><span>50 minutes</span></div>
       <div class="progress-track" aria-hidden="true"><span class="progress-fill" id="progress-fill"></span></div>
     </div>
-    <div class="co-badge">Kraft Heinz &times; Microsoft</div>
   </header>
 
   <div class="layout">
@@ -697,14 +682,14 @@
     <main class="stage" aria-live="polite">
       <section class="panel legacy-panel is-active" data-panel="0">
         <h2 id="activity-title">Welcome and objectives</h2>
-        <p class="legacy-lede">A practical lab for Kraft Heinz leaders: copy, adapt, and use executive-ready Microsoft 365 Copilot prompts against the work you already own &mdash; brand and category performance, customer and channel signals, supply and service issues, and the decisions that follow. Use your own work context wherever possible; the fallback demo data is fictional.</p>
+        <p class="legacy-lede">A practical lab for senior leaders: copy, adapt, and use executive-ready Microsoft 365 Copilot prompts against the work you already own &mdash; brand and category performance, customer and channel signals, supply and service issues, and the decisions that follow. Use your own work context wherever possible; the fallback demo data is fictional.</p>
         <div class="objective-list">
           <article><span>Catch up</span><p>Run a weekly catch-up across email, Teams chats, meetings, and files without reading everything.</p></article>
           <article><span>Prepare</span><p>Walk into a customer, brand, or operations review with context, positions, and questions in minutes.</p></article>
           <article><span>Decide</span><p>Extract decisions, action items, owners, dates, and open questions from what already happened.</p></article>
           <article><span>Analyze</span><p>Surface trends, risks, and growth opportunities from category, customer, and consumer data.</p></article>
         </div>
-        <div class="activity-note"><strong>Training data note:</strong> All fallback demo data references <strong>Lakeshore Foods Co.</strong> and fictitious retail customers (Contoso Markets, Fabrikam Club, Northwind Grocers, Adventure Works Foods, Tailspin Convenience). It is synthetic, generated for training only, and is not Kraft Heinz data, financials, or consumer records.</div>
+        <div class="activity-note"><strong>Training data note:</strong> All fallback demo data references <strong>Lakeshore Foods Co.</strong> and fictitious retail customers (Contoso Markets, Fabrikam Club, Northwind Grocers, Adventure Works Foods, Tailspin Convenience). It is synthetic, generated for training purposes only, and does not represent any real company's data, financials, or consumer records.</div>
         <div class="ga-note"><strong>Before you start:</strong> Sign in to Microsoft 365 Copilot with your work account, confirm <strong>Work IQ</strong> is enabled in Copilot Chat, and close anything you would not want on screen during a shared exercise.</div>
       </section>
 
@@ -922,7 +907,7 @@
   </div>
 
   <p class="fineprint">
-    Microsoft 365 Copilot enablement lab prepared for The Kraft Heinz Company. Kraft Heinz names and marks are the property of The Kraft Heinz Company and are used here solely to identify the audience for this enablement session. All practice data is fictional and generated for training purposes only.
+    Microsoft 365 Copilot enablement lab. All practice data is fictional and generated for training purposes only, and does not represent any real company, customer, employee, consumer, or financial results.
   </p>
 
   <script>

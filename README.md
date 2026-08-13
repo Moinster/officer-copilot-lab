@@ -1,10 +1,10 @@
-# Kraft Heinz · Microsoft 365 Copilot Executive Decision Sprint
+# Officer Copilot Lab · Microsoft 365 Copilot Executive Decision Sprint
 
 A self-contained, browser-only hands-on lab (Level 100–200) that walks executives from
 **signal → preparation → analysis → decision → communication → follow-through**
 using Microsoft 365 Copilot.
 
-**Live site:** https://brmoinea-microsoft.github.io/kraftheinz-copilot-executive-lab/
+**Live site:** _pending deployment_
 
 ## What's in it
 
@@ -44,7 +44,8 @@ All practice data is **fictional and synthetic**, generated deterministically by
 **Lakeshore Foods Co.**, selling to fictitious retail customers (Contoso Markets,
 Fabrikam Club, Northwind Grocers, Adventure Works Foods, Tailspin Convenience).
 
-It is **not** Kraft Heinz data, financials, consumer records, or performance results.
+It does **not** represent any real company's data, financials, consumer records, or
+performance results.
 
 The workbook contains four tabs:
 
@@ -84,14 +85,14 @@ GitHub Pages is served from the `main` branch root. Push to `main` and Pages red
 
 ## Branding note
 
-This lab uses a Kraft Heinz-inspired colour palette (red `#e4002b`, gold `#ffb81c`) and a
-text wordmark only — no Kraft Heinz logo files are included. Swap in official brand assets
-before customer delivery if required. Kraft Heinz names and marks are the property of
-The Kraft Heinz Company and are used here solely to identify the audience for this
-enablement session.
+This lab is intentionally unbranded. It ships with a neutral warm red (`#e4002b`) and gold
+(`#ffb81c`) palette and a text wordmark only — no customer logos or trademarks are
+included. If you deliver this to a specific audience, swap the wordmark, palette variables
+at the top of `index.html`, and the demo company names to match, and confirm any brand
+usage with that organization first.
 
 ## Credits
 
 Structure and activity flow adapted from the Microsoft 365 Copilot VIP hands-on lab by
-[@sgreenlee11](https://github.com/sgreenlee11/m365-copilot-vip-hands-on), rebuilt and
-re-scoped for a Kraft Heinz executive audience.
+[@sgreenlee11](https://github.com/sgreenlee11/m365-copilot-vip-hands-on), rebuilt with new
+practice data and an expanded prompt set.
