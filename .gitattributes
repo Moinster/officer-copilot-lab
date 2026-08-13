@@ -1,0 +1,10 @@
+# Keep binary assets byte-exact; never apply EOL conversion.
+*.xlsx binary
+*.xlsm binary
+*.png  binary
+
+# Text files: normalize to LF in the repository.
+*.html text eol=lf
+*.md   text eol=lf
+*.py   text eol=lf
+*.csv  text eol=lf
